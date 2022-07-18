@@ -1,0 +1,230 @@
+/* all */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* content layout myself */
+.container {
+  max-width: 960px;
+}
+.infoPrivate {
+  position: relative;
+  padding-bottom: 10px;
+}
+.infoPrivate > img {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  left: -315px;
+  top: 85px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.infoPrivate > .whiteSpacePrivate {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  background-color: white;
+  left: -335px;
+  top: 65px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.edgeLeft {
+  border-left: 6px solid white;
+}
+.edgeLeft1 {
+  border-left: 6px solid orange;
+}
+.edgeLeftRel {
+  position: relative;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.edgeLeftRel .edgeLeftPos {
+  position: absolute;
+  top: 7.9px;
+  left: -7.52px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  transform: rotate(45deg);
+}
+.edgeLeftContent {
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+/* image myself*/
+.roundImage {
+  position: relative;
+}
+.roundImage .rotateImage {
+  width: 130px;
+  height: 130px;
+  background-color: transparent;
+  position: absolute;
+  top: 50.5px;
+  left: 162px;
+  transform: rotate(calc(135deg + (var(--value) * 45deg)));
+  z-index: 1;
+}
+.roundImage .rotateImage:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  filter: hue-rotate(calc(var(--value) * 45deg));
+  animation: roundDot 1s infinite;
+  animation-delay: calc(var(--value) * 0.125s);
+}
+@keyframes roundDot {
+  0% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+.roundImage .straight {
+  position: absolute;
+  top: 110.5px;
+  left: 306px;
+  /* width: 70px;
+  height: 10px; */
+  border-radius: 10px;
+  background-color: red;
+  opacity: 0;
+  animation: straightRun 1s infinite;
+  animation-delay: 1s;
+}
+@keyframes straightRun {
+  0% {
+    width: 0;
+    height: 10px;
+    opacity: 1;
+  }
+  100% {
+    width: 180px;
+    height: 10px;
+    opacity: 0;
+  }
+}
+.roundImage .straight::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -15px;
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid red;
+}
+
+/* percentage of the learning process */
+.blockPercent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.boxPercent {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.boxPercent .roundPercent {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+.boxPercent .roundPercent svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform: rotate(270deg);
+}
+.boxPercent .roundPercent svg circle {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke-width: 2px;
+  transform: translate(5px, 5px);
+  stroke: var(--clr);
+  stroke-dasharray: 440;
+  stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+  opacity: 0;
+  /* animation: fadeIn 1s linear forwards; */
+  animation-delay: 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.roundPercent .dotPercent {
+  position: absolute;
+  inset: 5px;
+  /* transform: rotate(calc(3.6deg * var(--num))); */
+  z-index: 10;
+  /* animation: progressRun 1s linear forwards; */
+}
+@keyframes progressRun {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(calc(3.6deg * var(--num)));
+  }
+}
+.roundPercent .dotPercent::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--clr);
+  box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr);
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.roundPercent .numberPercent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+  animation-delay: 1s;
+}
+.roundPercent .numberPercent h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.roundPercent .numberPercent .p {
+  display: block;
+  font-weight: 300;
+  font-size: 1rem;
+  color: orange;
+  letter-spacing: 2px;
+}
